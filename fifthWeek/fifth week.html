@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="fifth week.css">
+</head>
+<body>
+<div id="app">
+    <form>
+        <input type="text" placeholder="请输入序号" v-model="book.id">
+        <input type="text" placeholder="请输入书名" v-model="book.name">
+        <input type="text" placeholder="请输入出版社" v-model="book.score">
+        <input type="submit" value="添加" @click.prevent="add">
+    </form>
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>书名</th>
+            <th>出版社</th>
+            <th>借阅状态</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="(book, index) in books">
+            <td> {{book.id}} </td>
+            <td> {{book.name}}</td>
+            <td> {{book.score}} </td>
+            <td ref="returnValue"> {{book.status}} </td>
+            <td>
+                <a href="#" @click.prevent="del(index)">删除</a>
+                <br/>
+
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script src="fifth week.js"></script>
+</html>
